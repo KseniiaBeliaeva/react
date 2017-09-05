@@ -4,7 +4,7 @@ const listItems = Skills.map((Skills) =>
   <li className="skillsMenu">{Skills}</li>
 );
 
-const MenuList = ["Menu", "Expirience", "Contacts", "Hire me"];
+const MenuList = ["Menu", "Skills", "Contacts", "Hire me"];
 const MenuListItems = MenuList.map((MenuList) =>
   <li className="menu">{MenuList}</li>
 );
@@ -16,23 +16,50 @@ class Menu extends React.Component {
     )
   }
 }
+
 class Bio extends React.Component {
   render() {
     return (
+      <section>
       <h1 className="bio">{listItems}</h1>
+      </section>  
     )
   }
 }
-
-class HelloMessage extends React.Component {
+class Container extends React.Component {
   render() {
     return (
       <div>
-          <Menu />
-          <Bio />
+        <Menu />
+        <h1>{this.props.name}</h1>
+        <img src= {this.props.pic} className="profileimg" />
         </div>
     )
   }
 }
+class Container1 extends React.Component {
+  render() {
+    return (
+      <div>
+        <Menu />
+        <Bio />
+      </div>
+    )
+  }
+}
+class Container2 extends React.Component {
+  render() {
+    return (
+      <div>
+        <Menu />
+        <div id="container-hire">
+          <p className="hireme">Hire me</p>
+        </div>  
+      </div>
+    )
+  }
+}
 
-ReactDOM.render(<HelloMessage name="Ksenia Beliaeva" />, document.getElementById('container'));
+ReactDOM.render(<Container name="Ksenia Beliaeva" pic="img/my-image.jpg" />, document.getElementById('container'));
+ReactDOM.render(<Container1 name="Ksenia Beliaeva" />, document.getElementById('container-1'));
+ReactDOM.render(<Container2 name="Ksenia Beliaeva" />, document.getElementById('container-2'));

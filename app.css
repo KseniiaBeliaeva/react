@@ -1,8 +1,34 @@
+html,
 body {
-  background-image: 
-  url('img/background.jpg');
+  height: 100%;
+  margin: 0;
+
+}
+body {
+  background: lavenderblush;
 }
 
+#container-1 {
+  background-color: lightcyan;
+}
+#container,
+#container-1,
+#container-2 {
+  text-align: center;
+  background-attachment: fixed;
+  height: 100%;
+
+}
+#container-hire {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hireme {
+  margin: 0;
+ 
+}
 .menu {
   display: inline;
   cursor: pointer;
@@ -14,7 +40,6 @@ ul {
     margin: 0;
 }
 .bio {
-  background:lavenderblush;
   width:50%;
   margin: 5% auto;
 }
@@ -23,4 +48,9 @@ ul {
   text-decoration: none;
   text-align: center;
   margin: 5%;
+}
+.profileimg {
+  width: 250px;
+  border-radius: 50%;
+  text-align: center;
 }
