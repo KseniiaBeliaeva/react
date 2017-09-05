@@ -1,12 +1,12 @@
 
 const Skills = ["HTML5", "CSS3", "JavaScript", "JQuery", "Bootstrap"];
-const listItems = Skills.map((Skills) =>
-  <li className="skillsMenu">{Skills}</li>
+const listItems = Skills.map((Skills, index) =>
+  <li key={index} className="skillsMenu">{Skills}</li>
 );
 
 const MenuList = ["Menu", "Skills", "Contacts", "Hire me"];
-const MenuListItems = MenuList.map((MenuList) =>
-  <li className="menu">{MenuList}</li>
+const MenuListItems = MenuList.map((MenuList, index) =>
+  <li key={index} className="menu">{MenuList}</li>
 );
 
 class Menu extends React.Component {
