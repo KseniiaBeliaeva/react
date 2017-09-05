@@ -1,0 +1,26 @@
+body {
+  background-image: 
+  url('img/background.jpg');
+}
+
+.menu {
+  display: inline;
+  cursor: pointer;
+padding: 15px;
+}
+ul {
+    background: lavender;
+    padding: 15px;
+    margin: 0;
+}
+.bio {
+  background:lavenderblush;
+  width:50%;
+  margin: 5% auto;
+}
+.skillsMenu {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin: 5%;
+}
