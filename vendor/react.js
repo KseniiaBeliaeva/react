@@ -11410,10 +11410,10 @@ TopLevelWrapper.prototype.render = function () {
  *
  *   ReactMount.render(
  *     component,
- *     document.getElementById('container')
+ *     document.getElementById('container1')
  *   );
  *
- *   <div id="container">                   <-- Supplied `container`.
+ *   <div id="container1">                   <-- Supplied `container`.
  *     <div data-reactid=".3">              <-- Rendered reactRoot of React
  *       // ...                                 component.
  *     </div>
