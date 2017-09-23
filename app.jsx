@@ -1,9 +1,55 @@
+//Contacts
+//=========
+
+class Contacts extends React.Component { 
+  render() { 
+    return (
+      <div className = "container">
+        <ul className="contactsList">
+          <li className="contactDetails">{this.props.email}</li>
+          <li>{this.props.mob}</li>
+          <li>{this.props.linkedin}</li>
+        </ul> 
+        
+     </div>
+    );
+  }
+}
+
+// Portfolio
+// =========
+class Portfolio extends React.Component {
+  render() {
+    return (
+      <div>
+        {this.props.exampleList.map(example =>
+          <Example image={example.image} link={example.siteLink} key={example.image} />
+        )
+        }
+      </div>
+    );
+  }
+
+}
+
+class Example extends React.Component {
+  render() {
+    return (
+      <div className="siteEx">
+        <a href={this.props.siteLink} className="examples-link" >
+        <img src={this.props.image} className="examples-img" />
+        </a>
+      </div>
+    );
+  }
+}
+
 //MENULIST
 //========
 
 const MenuList = ["Menu", "Skills", "Contacts", "Hire me"];
-const MenuListItems = MenuList.map((MenuList, index) =>
-  <li key={index} className="menu">{MenuList}</li>
+const MenuListItems = MenuList.map((menuItem) =>
+  <li key={menuItem} className="menu">{menuItem}</li>
 );
 
 class Menu extends React.Component {
@@ -17,86 +63,80 @@ class Menu extends React.Component {
 // SKILLS
 // ======
 
-const Skills = ["HTML5", "CSS3", "JavaScript", "JQuery", "Bootstrap"];
-const listItems = Skills.map((Skills, index) =>
-  <li key={index} className="skillsMenu">{Skills}</li>
+const SkillsList = ["HTML5", "CSS3", "JavaScript", "JQuery", "Bootstrap"];
+const listItems = SkillsList.map((skillname) =>
+  <li key={skillname} className="skillsMenu">{skillname}</li>
 );
 
-class Bio extends React.Component {
+class Skills extends React.Component {
   render() {
     return (
-      <section>
       <h1 className="bio">{listItems}</h1>
-      </section>  
     )
   }
 }
 
-//CONTAINER
-//=========
-
-class Container1 extends React.Component {
-  constructor(props) { 
-    super(props);
-    this.state = {
-      width: 250
-    };
-  }
-  render() {
-    let { width } = this.state;
-    return (
-      <div>
-        <Menu />
-        <h2 id="datetime">{new Date().toLocaleTimeString()}</h2>
-        <h1 id="name">{this.props.name}</h1>
-        <img src={this.props.pic} height={width} className={"profileimg " + width} />
-        <br />
-        <button className="decrement" onClick={this.zoomPicOut.bind(this)}>-</button>
-        <button className="increment" onClick={this.zoomPicIn.bind(this)}>+</button>
-      </div>
-    );
-  }
-  zoomPicIn() {
-    this.setState({width: this.state.width + 20})
-  }
-  zoomPicOut() {
-    this.setState({ width: this.state.width - 20 })
-
-
-  }
-}
-
-//CONTAINER1
-//==========
-
-class Container2 extends React.Component {
+class Title extends React.Component {
   render() {
     return (
       <div>
         <Menu />
-        <Bio />
-      </div>
-    );
-  }
-}
-
-//CONTAINER2
-//==========
-
-class Container3 extends React.Component {
-  render() {
-    return (
-      <div>
-        <Menu />
-        <div id="container-hire">
-          <p className="hireme">Hire me</p>
-        </div>
+        <h1>{this.props.name}</h1>
+        <img src={this.props.pic} className="my-image" />
       </div>
     );
   }
 }
 
 
-ReactDOM.render(<Container1 name="Ksenia Beliaeva" pic="img/my-image.jpg" />, document.getElementById('container1'));
-ReactDOM.render(<Container2 name="Ksenia Beliaeva" />, document.getElementById('container2'));
-ReactDOM.render(<Container3 name="Ksenia Beliaeva" />, document.getElementById('container3'));
+class MainContainer extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <Title name={this.props.me.name} pic={this.props.me.avatar} />
+        <Skills />
+        <Portfolio exampleList={this.props.me.examples} />
+        <Portfolio exampleList={this.props.me.examples2} className = " portfolio-wrap"/>
+        <Contacts email={this.props.me.email} mob={this.props.me.mobile} linkedin={this.props.me.linkedin}/>
+      </div>
+    );
+  }
+}
+
+MainContainer.defaultTypes = {
+  name: "Ksenia Beliaeva",
+};
+
+let ME =
+  {
+    name: "Ksenia Beliaeva",
+    avatar: "img/my-image.jpg",
+    skills: [],
+    email : "Email: ksenia@gmail.com",
+    mobile : "Mob: 34 - 55 - 22",
+    linkedin : "Linedin: Koshka Moshka",
+    examples: [{
+      image: "img/websites-examples__each.png",
+      siteLink : "aaa.com",
+    },
+    {
+      image: "img/websites-examples__each2.png",
+      siteLink: "aaa.com",
+    }
+    ],
+    examples2: [{
+      image: "img/websites-examples__each.png",
+      siteLink: "aaa.com",
+    },
+    {
+      image: "img/websites-examples__each2.png",
+      siteLink: "aaa.com",
+    }
+    ]
+  };
+
+
+
+ReactDOM.render(<MainContainer me = {ME} />, document.getElementById('main-container'));
+

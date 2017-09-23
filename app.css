@@ -7,17 +7,17 @@ body {
 body {
   background: lavenderblush;
 }
+.container {
+  height: 100%;
+}
 
 #container2 {
   background-color: lightcyan;
 }
-#container1,
-#container2,
-#container3 {
-  text-align: center;
-  background-attachment: fixed;
-  height: 100%;
 
+#main-container {
+  margin: 2% auto;
+  text-align: center;
 }
 #container-hire {
     height: 100%;
@@ -25,8 +25,29 @@ body {
     justify-content: center;
     align-items: center;
 }
+.my-image {
+  width: 250px;
+  border-radius: 50%;
+}
+.portfolio-wrap {
+  display: flex;
+}
+
+.examples-img {
+width: 30%;
+flex-grow: 1;
+
+}
+.examples-link {
+  color:white;
+}
+.contactsList {
+  list-style: none;
+}
+
 #name {
   margin-top: 28px;
+    color:#111179;
 }
 #datetime {
   float: right;
@@ -40,9 +61,12 @@ body {
 }
 .menu {
   display: inline;
+    color:#111179;
   cursor: pointer;
   padding: 15px;
 }
+.menu:hover , .skillsMenu:hover {
+color:black;}
 ul {
     background: lavender;
     padding: 15px;
@@ -54,10 +78,12 @@ ul {
 }
 .skillsMenu {
   display: block;
+  color:#111179;
   text-decoration: none;
   text-align: center;
   margin: 5%;
 }
+
 .profileimg {
   width: 250px;
   border-radius: 50%;
